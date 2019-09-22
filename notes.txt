@@ -1,0 +1,72 @@
+TO START:
+- to run:
+    - server: "npm start"
+    - client: "npm start"
+
+====================================================================================================================================
+
+TODO:
+1) Framework for hosting the PowerBI dashboard
+2) Entry process for downtimes and rejects
+3) Method of adding the downtimes to the machine log
+
+orange - #f47521
+gray - rgba(10,8,8,0.75), #303030, 1a1a1a
+white
+yellow - #fdb713
+red - #ee3523
+
+
+
+====================================================================================================================================
+
+CLIENT
+
+https://stackoverflow.com/questions/40681179/using-charts-js-with-react
+https://www.createwithdata.com/react-chartjs-dashboard/
+
+https://material-ui.com/components/material-icons/
+https://themes.material-ui.com/previews/devias-kit-pro/
+
+BACKLOG:
+
+- initial database connection logic
+- changing of title label based on selected menu item ("OEE: <Dashboard | Charts | Journal | etc.>")
+- i-push sa isang repo (saan na?)
+- app bar design (yung nasa taas ng page)
+- work with other chart libraries (chart js)
+- role management (login/out, user profiles)
+- test ui design on smaller screens
+- database: save downtime journal records
+- database: retrieve log records based from selected date
+
+STATUS UPDATE:
+
+2019.09.03:
+
+- routing functionality - done
+- update tab bar title and icon - done
+- home page
+
+  - layout created (top, left, right)
+  - adding buttons cancelled, not needed because of sidebar
+  - TODO: none at the moment, undecided in the content
+
+- journal page
+
+  - added ui components: calendar, table (has add, edit, delete, sorting, searching, and pagination functionalities), and reasons section (ongoing)
+  - TODO: designing reasons section
+
+-
+
+2019.08 4th week
+
+- inaral ko yung Material UI design, yun kasi yung gusto kong i-apply na design. so far, ok naman ako sa mga nakita kong itsura/functionalities niya.
+- initial na na gawa ko ito pa lang (lalagyan ko sana mga charts kaya lang baka ma sayang effort kung lalagyan naman power bi reports sa future):
+
+====================================================================================================================================
+
+SERVER:
+https://blog.logrocket.com/setting-up-a-restful-api-with-node-js-and-postgresql-d96d6fc892d8/
+https://medium.com/@olinations/build-a-crud-template-using-react-bootstrap-express-postgres-9f84cc444438
+https://medium.com/@gajus/stop-using-knex-js-and-earn-30-bf410349856c

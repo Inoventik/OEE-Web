@@ -1,0 +1,27 @@
+.MuiPickersStaticWrapper-staticWrapperRoot {
+  /* to center, will disable full width */
+  /* align-items: center !important; */
+  /* background-color: transparent !important; */
+  background-color: green !important;
+}
+
+.MuiPickersBasePicker-pickerViewLandscape {
+  /* to full width */
+  width: 100% !important;
+  /* width: 35% !important; */
+
+  background-color: white !important;
+  max-width: none !important;
+}
+
+.MuiPickersCalendarHeader-daysHeader {
+  justify-content: space-evenly !important;
+}
+
+.MuiPickersCalendar-week {
+  justify-content: space-evenly !important;
+}
+
+.MuiPickersDatePickerRoot-dateLandscape {
+  margin-right: 0px !important;
+}

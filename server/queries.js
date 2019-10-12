@@ -9,7 +9,7 @@ const pool = new Pool({
 
 const getAllInfo = (request, response) => {
   pool.query(
-    "SELECT * FROM combined_etl ORDER BY id ASC LIMIT 10",
+    "SELECT * FROM combined_etl ORDER BY id ASC LIMIT 100",
     (error, results) => {
       if (error) {
         throw error;

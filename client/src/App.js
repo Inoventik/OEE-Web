@@ -1,26 +1,43 @@
-import React, { Component } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-// import "./App.css";
+import React, { useState } from "react";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Layout from "./components/Layout";
-import Home from "./components/Home";
-import Journal from "./components/Journal";
-import About from "./components/About";
-import { NotFound } from "./components/Errors";
+import Dashboard from "./components/pages/Dashboard";
+import Home from "./components/pages/Home";
+import Journal from "./components/pages/Journal";
+import About from "./components/pages/About";
+import { AuthContext } from "./context/auth";
+import PrivateRoute from "./components/PrivateRoute";
+import Login from "./components/pages/Login";
+import Signup from "./components/pages/Signup";
+import Admin from "./components/pages/Admin";
 
-export default class extends Component {
-  render() {
-    return (
+export default function App() {
+  const [authTokens, setAuthTokens] = useState();
+
+  const setTokens = data => {
+    localStorage.setItem("tokens", JSON.stringify(data));
+    setAuthTokens(data);
+  };
+
+  return (
+    <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
       <BrowserRouter>
-        <Layout>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/dashboard" render={() => <div>Dashboard</div>} />
-            <Route path="/journal" component={Journal} />
-            <Route path="/about" component={About} />
-            <Route component={NotFound} />
-          </Switch>
-        </Layout>
+        <Switch>
+          <Route path="/login" component={Login} />
+          <Route path="/signup" component={Signup} />
+          <PrivateRoute exact path="/" component={Home} />
+          <PrivateRoute path="/dashboard" component={Dashboard} />
+          <PrivateRoute path="/journal" component={Journal} />
+          <PrivateRoute path="/admin" component={Admin} />
+          <PrivateRoute path="/about" component={About} />
+          <PrivateRoute
+            path="/"
+            component={() => {
+              return <Redirect to="/" />;
+            }}
+          />
+        </Switch>
       </BrowserRouter>
-    );
-  }
+    </AuthContext.Provider>
+  );
 }

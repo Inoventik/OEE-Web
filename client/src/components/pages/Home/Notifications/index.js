@@ -78,7 +78,8 @@ class Notifications extends Component {
       <div>
         <Paper className={classes.root}>
           <div className={classes.tableWrapper}>
-            <Table stickyHeader size="small">
+            {/* <Table stickyHeader size="small"> */}
+            <Table size="small">
               <TableHead>
                 <TableRow>
                   {columns.map(column => (

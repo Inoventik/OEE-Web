@@ -1,14 +1,17 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const app = express();
-const port = 3001;
-const db = require("./queries");
+const config = require("config");
+const db = require("./api/db");
 
-var whitelist = ["http://localhost:3000"];
-var corsOptions = {
+const app = express();
+
+const port = config.get("express_port");
+const whitelist = config.get("whitelist");
+
+const corsOptions = {
   origin: function(origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
+    if (!origin || whitelist.indexOf(origin) !== -1) {
       callback(null, true);
     } else {
       callback(new Error("Not allowed by CORS"));
@@ -29,8 +32,12 @@ app.get("/", (request, response) => {
     info: "Node.js, Express, and Postgres API."
   });
 });
-
-app.get("/info", db.getAllInfo);
+app.get("/api/info", db.getAllInfo);
+app.get("/api/users", db.getAllUsers);
+app.post("/api/user/save", db.saveUser);
+app.post("/api/user/update", db.updateUser);
+app.post("/api/user/password", db.resetPassword);
+app.post("/api/user/auth", db.auth);
 
 app.listen(port, () => {
   console.log(`App running on port ${port}.`);

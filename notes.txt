@@ -1,3 +1,13 @@
+https://medium.com/better-programming/building-basic-react-authentication-e20a574d5e71
+- continue at: Logging Out and Expired Tokens
+
+https://tylermcginnis.com/react-router-protected-routes-authentication/
+https://auth0.com/blog/handling-authentication-in-react-with-context-and-hooks/
+https://kentcdodds.com/blog/authentication-in-react-applications
+
+https://medium.com/@SilentHackz/simple-way-to-secure-react-apps-using-jwt-and-react-router-2b4a05d780a3
+https://blog.logrocket.com/securing-a-react-app/
+
 TO START:
 - to run:
     - server: "npm start"
@@ -67,6 +77,7 @@ STATUS UPDATE:
 ====================================================================================================================================
 
 SERVER:
+https://www.npmjs.com/package/bcrypt
 https://blog.logrocket.com/setting-up-a-restful-api-with-node-js-and-postgresql-d96d6fc892d8/
 https://medium.com/@olinations/build-a-crud-template-using-react-bootstrap-express-postgres-9f84cc444438
 https://medium.com/@gajus/stop-using-knex-js-and-earn-30-bf410349856c

@@ -35,6 +35,7 @@ const styles = theme => ({
     display: "flex"
   },
   appBar: {
+    backgroundColor: "#f47521", //orange
     zIndex: theme.zIndex.drawer + 1,
     transition: theme.transitions.create(["width", "margin"], {
       easing: theme.transitions.easing.sharp,
@@ -94,7 +95,7 @@ const styles = theme => ({
 
 class Layout extends Component {
   state = {
-    open: false,
+    open: true,
     date: new Date()
   };
 

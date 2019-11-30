@@ -38,6 +38,8 @@ app.post("/api/user/save", db.saveUser);
 app.post("/api/user/update", db.updateUser);
 app.post("/api/user/password", db.resetPassword);
 app.post("/api/user/auth", db.auth);
+app.get("/api/tasks", db.getAllTasks);
+app.post("/api/task/save", db.saveTask);
 
 app.listen(port, () => {
   console.log(`App running on port ${port}.`);

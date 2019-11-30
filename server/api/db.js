@@ -143,6 +143,36 @@ const auth = (request, response) => {
   );
 };
 
+const getAllTasks = (request, response) => {
+  pool.query(
+    "SELECT id, recipient, sender, message, status, date_sent FROM tasks ORDER BY id ASC LIMIT 100",
+    (error, results) => {
+      if (error) {
+        throw error;
+      }
+
+      response.status(200).json(results.rows);
+    }
+  );
+};
+
+const saveTask = (request, response) => {
+  const { recipient, sender, message, status, date_sent } = request.body;
+  console.log(request.body);
+
+  pool.query(
+    "INSERT INTO tasks (recipient, sender, message, status, date_sent) VALUES ($1, $2, $3, $4, $5) RETURNING id",
+    [recipient, sender, message, status, date_sent],
+    (error, result) => {
+      if (error) return setErrorResponse(response, error, 500);
+
+      return response
+        .status(201)
+        .send(`Task added with ID: ${result.rows[0].id}`);
+    }
+  );
+};
+
 function setErrorResponse(responseObject, errorObject, errorStatus) {
   if (errorObject) {
     console.log(errorObject.message);
@@ -159,5 +189,7 @@ module.exports = {
   saveUser,
   updateUser,
   resetPassword,
-  auth
+  auth,
+  getAllTasks,
+  saveTask
 };
